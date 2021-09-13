@@ -1,0 +1,8 @@
+# harden OS
+
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - { role: oshardening }
