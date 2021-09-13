@@ -1,14 +1,11 @@
 --- 
-- 
-  gather_facts: true
-  hosts: aws_ec2
-  include_vars: harden.yml
-  name: "playbook for RedHat system hardening"
-  tasks: 
-    - 
-      name: "Configure System Ctrl"
-      sysctl: 
-        name: "{{ item.name }}"
-        state: latest
-        value: "{{ item.value }}"
-      with_items: "{{ harden }}"
+ - hosts: aws_ec2
+   include_vars: harden.yml
+   name: "playbook for RedHat system hardening"
+   tasks: 
+     - name: "Configure System Ctrl"
+       sysctl: 
+         name: "{{ item.name }}"
+         state: latest
+         value: "{{ item.value }}"
+       with_items: "{{ harden }}"
