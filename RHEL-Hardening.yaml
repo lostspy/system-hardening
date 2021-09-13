@@ -1,8 +1,9 @@
 ---
  - name: playbook for RedHat Hardening
    hosts: aws_ec2
-   include_vars: harden.yaml
    gather_facts: yes
+   include_vars: 
+     - harden.yaml
    tasks:
      - name: "Configure System Ctrl"
        sysctl: 
